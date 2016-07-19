@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPass", "SmartPass\SmartPass.csproj", "{DD91B5C0-BA0A-4620-8DA8-3954E6386A9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD91B5C0-BA0A-4620-8DA8-3954E6386A9E}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{DD91B5C0-BA0A-4620-8DA8-3954E6386A9E}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{DD91B5C0-BA0A-4620-8DA8-3954E6386A9E}.Release|iPhone.ActiveCfg = Release|iPhone
+		{DD91B5C0-BA0A-4620-8DA8-3954E6386A9E}.Release|iPhone.Build.0 = Release|iPhone
+		{DD91B5C0-BA0A-4620-8DA8-3954E6386A9E}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{DD91B5C0-BA0A-4620-8DA8-3954E6386A9E}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{DD91B5C0-BA0A-4620-8DA8-3954E6386A9E}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{DD91B5C0-BA0A-4620-8DA8-3954E6386A9E}.Debug|iPhone.Build.0 = Debug|iPhone
+	EndGlobalSection
+EndGlobal
