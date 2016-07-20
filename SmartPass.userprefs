@@ -1,23 +1,11 @@
-﻿<Properties StartupItem="SmartPass/SmartPass.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="SmartPass/Info.plist">
+﻿<Properties StartupItem="SmartPass/SmartPass.csproj" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="SmartPass/ViewPinController.cs" Line="14" Column="17" />
       <File FileName="SmartPass/Info.plist" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="SmartPass" expanded="True">
-            <Node name="SmartPass" expanded="True" selected="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.SmartPass PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
