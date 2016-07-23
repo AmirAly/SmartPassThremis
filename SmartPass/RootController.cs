@@ -21,10 +21,10 @@ namespace SmartPass
 			NSError AuthError;
 			if (!context.CanEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out AuthError))
 			{
-				//var alert = new UIAlertView("Error", "TouchID not available", null, "Ok", null);
-				//alert.Show();;
+				var alert = new UIAlertView("Error", "TouchID not available", null, "Ok", null);
+				alert.Show();;
 
-				UserAuthnticated();
+				//UserAuthnticated();
 
 			}
 			AuthenticateMe();
