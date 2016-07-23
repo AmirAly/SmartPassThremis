@@ -7,7 +7,7 @@
         <!--View Controller-->
         <scene sceneID="21">
             <objects>
-                <navigationController definesPresentationContext="YES" id="22" sceneMemberID="viewController" navigationBarHidden="YES">
+                <navigationController definesPresentationContext="YES" id="22" sceneMemberID="viewController" navigationBarHidden="YES" customClass="loadController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="25">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -19,163 +19,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="34" y="18"/>
-        </scene>
-        <scene sceneID="75">
-            <objects>
-                <viewController id="76" sceneMemberID="viewController" customClass="ViewPinController" storyboardIdentifier="vpController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="73"/>
-                        <viewControllerLayoutGuide type="bottom" id="74"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="77" customClass="ViewPinCodeController">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0.2" green="0.2" blue="0.2" alpha="1"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please set a pin code" lineBreakMode="tailTruncation" minimumFontSize="10" id="80" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" misplaced="YES">
-                                <rect key="frame" x="33" y="153" width="308" height="39"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="82" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" misplaced="YES" placeholder="000-111">
-                                <rect key="frame" x="105" y="249" width="169" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="140" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                                <rect key="frame" x="120" y="394" width="138" height="52"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
-                                </state>
-                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                <connections>
-                                    <segue id="673" destination="229" kind="show" identifier="segQR"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint id="1307" firstItem="80" firstAttribute="centerX" secondItem="77" secondAttribute="centerX"/>
-                            <constraint id="1308" firstItem="80" firstAttribute="top" secondItem="73" secondAttribute="bottom" constant="133"/>
-                            <constraint id="1309" firstItem="82" firstAttribute="centerY" secondItem="80" secondAttribute="bottom" constant="72"/>
-                            <constraint id="1310" firstItem="82" firstAttribute="centerX" secondItem="77" secondAttribute="centerX" constant="2"/>
-                            <constraint id="1311" firstItem="140" firstAttribute="centerX" secondItem="77" secondAttribute="centerX" constant="1"/>
-                            <constraint id="1312" firstItem="140" firstAttribute="top" secondItem="82" secondAttribute="bottom" constant="115"/>
-                        </constraints>
-                    </view>
-                    <connections/>
-                    <navigationItem title="Pin Code" id="135" key="navigationItem"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="78" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1403" y="10"/>
-        </scene>
-        <scene sceneID="154">
-            <objects>
-                <viewController id="155" sceneMemberID="viewController" customClass="FBViewController" storyboardIdentifier="fpController" useStoryboardIdentifierAsRestorationIdentifier="YES">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="152"/>
-                        <viewControllerLayoutGuide type="bottom" id="153"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="156" customClass="FBController">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please Set Your Fingerprint" lineBreakMode="tailTruncation" minimumFontSize="10" id="159" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" misplaced="YES">
-                                <rect key="frame" x="28" y="146" width="327" height="38"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
-                                <nil key="highlightedColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
-                                <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="160" translatesAutoresizingMaskIntoConstraints="NO" image="Fingerprint-13.png" misplaced="YES">
-                                <rect key="frame" x="102" y="224" width="171" height="159"/>
-                                <constraints>
-                                    <constraint id="1330" firstItem="160" firstAttribute="width" constant="171"/>
-                                    <constraint id="1331" firstItem="160" firstAttribute="height" constant="159"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1341" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="312" y="28" width="43" height="43"/>
-                                <state key="normal" image="taxes-menu-icon.png" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleColor" colorSpace="calibratedRGB" red="1" green="0.49803921568627452" blue="0" alpha="1"/>
-                                </state>
-                                <connections/>
-                                <constraints>
-                                    <constraint id="1823" firstItem="1341" firstAttribute="height" constant="43"/>
-                                    <constraint id="1824" firstItem="1341" firstAttribute="width" constant="43"/>
-                                </constraints>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="We can't auhtnticate you on this device" lineBreakMode="tailTruncation" minimumFontSize="10" id="1960" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" numberOfLines="2" hidden="YES" misplaced="YES">
-                                <rect key="frame" x="39" y="516" width="295" height="45"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" colorSpace="calibratedRGB" red="1" green="0.53333333333333333" blue="0.60392156862745094" alpha="1"/>
-                                <nil key="highlightedColor"/>
-                                <constraints>
-                                    <constraint id="2027" firstItem="1960" firstAttribute="height" constant="45"/>
-                                    <constraint id="2028" firstItem="1960" firstAttribute="width" constant="295"/>
-                                </constraints>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1965" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                                <rect key="frame" x="111" y="417" width="154" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Authonticate">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
-                                </state>
-                                <connections/>
-                            </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="1970" misplaced="YES" animating="YES" hidden="YES">
-                                <rect key="frame" x="178" y="458" width="20" height="20"/>
-                            </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1985" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES" hidden="YES">
-                                <rect key="frame" x="129" y="478" width="115" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Skip to pin">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
-                                </state>
-                                <connections>
-                                    <segue id="2023" destination="76" kind="show"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0.2" green="0.2" blue="0.2" alpha="1"/>
-                        <constraints>
-                            <constraint id="1301" firstItem="159" firstAttribute="centerX" secondItem="156" secondAttribute="centerX" constant="4"/>
-                            <constraint id="1302" firstItem="159" firstAttribute="top" secondItem="152" secondAttribute="bottom" constant="126"/>
-                            <constraint id="1303" firstItem="160" firstAttribute="centerX" secondItem="156" secondAttribute="centerX"/>
-                            <constraint id="1304" firstItem="160" firstAttribute="top" secondItem="159" secondAttribute="bottom" constant="40"/>
-                            <constraint id="1821" firstItem="156" firstAttribute="trailing" secondItem="1341" secondAttribute="trailing" constant="20"/>
-                            <constraint id="1822" firstItem="1341" firstAttribute="top" secondItem="152" secondAttribute="bottom" constant="8"/>
-                            <constraint id="1967" firstItem="1965" firstAttribute="centerX" secondItem="160" secondAttribute="centerX"/>
-                            <constraint id="1968" firstItem="1965" firstAttribute="centerY" secondItem="160" secondAttribute="bottom" constant="39"/>
-                            <constraint id="1971" firstItem="1970" firstAttribute="centerX" secondItem="156" secondAttribute="centerX"/>
-                            <constraint id="1972" firstItem="1970" firstAttribute="centerY" secondItem="1965" secondAttribute="bottom" constant="21"/>
-                            <constraint id="1989" firstItem="156" firstAttribute="centerX" secondItem="1985" secondAttribute="centerX" constant="1"/>
-                            <constraint id="1990" firstItem="1985" firstAttribute="centerY" secondItem="160" secondAttribute="bottom" constant="110"/>
-                            <constraint id="2025" firstItem="156" firstAttribute="centerX" secondItem="1960" secondAttribute="centerX" constant="1"/>
-                            <constraint id="2026" firstItem="1960" firstAttribute="centerY" secondItem="160" secondAttribute="bottom" constant="155"/>
-                        </constraints>
-                    </view>
-                    <navigationItem title="Finger Print" id="182" key="navigationItem"/>
-                    <connections>
-                        <outlet property="btnMenu" destination="1341" id="name-outlet-1341"/>
-                        <outlet property="lbValidation" destination="1960" id="name-outlet-1960"/>
-                        <outlet property="btnAuth" destination="1965" id="name-outlet-1965"/>
-                        <outlet property="aLoader" destination="1970" id="name-outlet-1970"/>
-                        <outlet property="btnSkip" destination="1985" id="name-outlet-1985"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="157" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="917" y="3"/>
         </scene>
         <scene sceneID="228">
             <objects>
@@ -190,19 +33,16 @@
                         <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0.2" green="0.2" blue="0.2" alpha="1"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Enter the code maually" lineBreakMode="tailTruncation" minimumFontSize="10" id="233" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" numberOfLines="2" misplaced="YES">
-                                <rect key="frame" x="20" y="102" width="335" height="85"/>
+                                <rect key="frame" x="20" y="233" width="335" height="85"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="235" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" misplaced="YES" placeholder="123456">
-                                <rect key="frame" x="81" y="187" width="213" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="235" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" placeholder="123456" misplaced="YES">
+                                <rect key="frame" x="80" y="304" width="213" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <constraints>
-                                    <constraint id="1872" firstItem="235" firstAttribute="width" constant="213"/>
-                                </constraints>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="236" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
                                 <rect key="frame" x="108" y="367" width="158" height="45"/>
@@ -213,9 +53,10 @@
                                 </state>
                                 <connections/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1861" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                                <rect key="frame" x="112" y="240" width="150" height="30"/>
-                                <state key="normal" title="Or try to scan again">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1861" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="88" y="152" width="184" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Scan the code">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 </state>
@@ -236,21 +77,25 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue id="2394" destination="302" kind="show" identifier="segPush"/>
+                                    <segue id="2687" destination="1495" kind="show" identifier="sgViewCode"/>
                                 </connections>
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint id="1862" firstItem="233" firstAttribute="centerX" secondItem="230" secondAttribute="centerX"/>
-                            <constraint id="1863" firstItem="233" firstAttribute="top" secondItem="226" secondAttribute="bottom" constant="82"/>
-                            <constraint id="1864" firstItem="235" firstAttribute="centerX" secondItem="230" secondAttribute="centerX"/>
-                            <constraint id="1865" firstItem="235" firstAttribute="top" secondItem="233" secondAttribute="centerY" constant="42"/>
-                            <constraint id="1866" firstItem="1861" firstAttribute="top" secondItem="235" secondAttribute="bottom" constant="23"/>
-                            <constraint id="1867" firstItem="1861" firstAttribute="centerX" secondItem="233" secondAttribute="centerX"/>
-                            <constraint id="1868" firstItem="236" firstAttribute="top" secondItem="1861" secondAttribute="bottom" constant="97"/>
                             <constraint id="1869" firstItem="236" firstAttribute="centerX" secondItem="230" secondAttribute="centerX"/>
                             <constraint id="1885" firstItem="230" firstAttribute="centerX" secondItem="1873" secondAttribute="centerX" constant="1"/>
                             <constraint id="1887" firstItem="1873" firstAttribute="top" secondItem="236" secondAttribute="bottom" constant="27"/>
+                            <constraint id="2644" firstItem="230" firstAttribute="centerX" secondItem="1861" secondAttribute="centerX" constant="7"/>
+                            <constraint id="2645" firstItem="1861" firstAttribute="top" secondItem="226" secondAttribute="bottom" constant="132"/>
+                            <constraint id="2646" firstItem="233" firstAttribute="centerX" secondItem="230" secondAttribute="centerX"/>
+                            <constraint id="2647" firstItem="233" firstAttribute="centerX" secondItem="230" secondAttribute="centerX"/>
+                            <constraint id="2648" firstItem="233" firstAttribute="centerY" secondItem="1861" secondAttribute="bottom" constant="93"/>
+                            <constraint id="2649" firstItem="235" firstAttribute="centerY" secondItem="233" secondAttribute="centerY" constant="43"/>
+                            <constraint id="2650" firstItem="230" firstAttribute="centerX" secondItem="235" secondAttribute="centerX" constant="1"/>
+                            <constraint id="2651" firstItem="235" firstAttribute="top" secondItem="233" secondAttribute="centerY" constant="28"/>
+                            <constraint id="2652" firstItem="233" firstAttribute="top" secondItem="1861" secondAttribute="bottom" constant="51"/>
+                            <constraint id="2653" firstItem="236" firstAttribute="centerX" secondItem="230" secondAttribute="centerX"/>
+                            <constraint id="2654" firstItem="236" firstAttribute="top" secondItem="235" secondAttribute="bottom" constant="33"/>
                         </constraints>
                     </view>
                     <connections>
@@ -262,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="231" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="35" y="751"/>
+            <point key="canvasLocation" x="1071" y="16"/>
         </scene>
         <scene sceneID="301">
             <objects>
@@ -301,9 +146,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 </state>
-                                <connections>
-                                    <segue id="1548" destination="1495" kind="show"/>
-                                </connections>
+                                <connections/>
                             </button>
                         </subviews>
                         <constraints>
@@ -318,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="304" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="476" y="755"/>
+            <point key="canvasLocation" x="40" y="795"/>
         </scene>
         <scene sceneID="1133">
             <objects>
@@ -338,7 +181,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue id="2256" destination="1672" kind="show"/>
+                                    <segue id="2769" destination="1495" kind="show"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -355,7 +198,7 @@
         </scene>
         <scene sceneID="1494">
             <objects>
-                <viewController id="1495" sceneMemberID="viewController" customClass="AccessCodeViewController">
+                <viewController id="1495" sceneMemberID="viewController" customClass="AccessCodeViewController" storyboardIdentifier="acController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1492"/>
                         <viewControllerLayoutGuide type="bottom" id="1493"/>
@@ -365,55 +208,51 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This is your code" lineBreakMode="tailTruncation" minimumFontSize="10" id="1499" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" misplaced="YES">
-                                <rect key="frame" x="62" y="144" width="250" height="28"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" minimumFontSize="10" id="1499" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" text="Please use this code" misplaced="YES">
+                                <rect key="frame" x="62" y="233" width="250" height="28"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="2808" firstItem="1499" firstAttribute="width" constant="250"/>
+                                </constraints>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="345-889" lineBreakMode="tailTruncation" minimumFontSize="10" id="1502" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" misplaced="YES">
-                                <rect key="frame" x="94" y="195" width="201" height="73"/>
+                                <rect key="frame" x="87" y="269" width="201" height="73"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="40"/>
                                 <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1510" misplaced="YES">
-                                <rect key="frame" x="54" y="283" width="274" height="9"/>
-                                <constraints>
-                                    <constraint id="1511" firstItem="1510" firstAttribute="width" constant="274"/>
-                                </constraints>
-                            </progressView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1890" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                                <rect key="frame" x="164" y="522" width="46" height="30"/>
-                                <state key="normal" title="Back">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2691" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="330" y="20" width="36" height="30"/>
+                                <state key="normal" title="Button" image="taxes-menu-icon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 </state>
-                                <connections>
-                                    <segue id="2330" destination="1672" kind="show"/>
-                                </connections>
+                                <constraints>
+                                    <constraint id="2696" firstItem="2691" firstAttribute="width" constant="36"/>
+                                    <constraint id="2697" firstItem="2691" firstAttribute="height" constant="30"/>
+                                </constraints>
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint id="1505" firstItem="1499" firstAttribute="top" secondItem="1492" secondAttribute="bottom" constant="124"/>
-                            <constraint id="1506" firstItem="1499" firstAttribute="centerX" secondItem="1496" secondAttribute="centerX"/>
-                            <constraint id="1512" firstItem="1510" firstAttribute="centerX" secondItem="1496" secondAttribute="centerX" constant="3"/>
-                            <constraint id="1513" firstItem="1510" firstAttribute="top" secondItem="1502" secondAttribute="centerY" constant="51"/>
-                            <constraint id="1552" firstItem="1502" firstAttribute="top" secondItem="1499" secondAttribute="bottom" constant="23"/>
-                            <constraint id="1553" firstItem="1502" firstAttribute="centerX" secondItem="1496" secondAttribute="centerX" constant="7"/>
-                            <constraint id="1891" firstItem="1890" firstAttribute="centerY" secondItem="1496" secondAttribute="centerY" constant="203"/>
-                            <constraint id="2041" firstItem="1890" firstAttribute="centerX" secondItem="1496" secondAttribute="centerX"/>
+                            <constraint id="2692" firstItem="1492" firstAttribute="bottom" secondItem="2691" secondAttribute="top" constant="6"/>
+                            <constraint id="2700" firstItem="1496" firstAttribute="trailing" secondItem="2691" secondAttribute="trailing" constant="9"/>
+                            <constraint id="2806" firstItem="1499" firstAttribute="top" secondItem="1492" secondAttribute="bottom" constant="213"/>
+                            <constraint id="2807" firstItem="1499" firstAttribute="centerX" secondItem="1496" secondAttribute="centerX"/>
+                            <constraint id="2809" firstItem="1502" firstAttribute="centerX" secondItem="1496" secondAttribute="centerX"/>
+                            <constraint id="2810" firstItem="1502" firstAttribute="top" secondItem="1499" secondAttribute="bottom" constant="8"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="pbValid" destination="1510" id="name-outlet-1510"/>
+                        <outlet property="btnMenu" destination="2691" id="name-outlet-2691"/>
+                        <outlet property="lblC" destination="1502" id="name-outlet-1502"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1497" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1008" y="748"/>
+            <point key="canvasLocation" x="487" y="779"/>
         </scene>
         <scene sceneID="1646">
             <objects>
@@ -460,7 +299,7 @@
                                     <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 </state>
                                 <connections>
-                                    <segue id="1815" destination="229" kind="show"/>
+                                    <segue id="2496" destination="229" kind="show"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1737" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
@@ -486,7 +325,7 @@
                                     <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 </state>
                                 <connections>
-                                    <segue id="2138" destination="1134" kind="show"/>
+                                    <segue id="2632" destination="1134" kind="show"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="2043" translatesAutoresizingMaskIntoConstraints="NO" image="earth-512.png" misplaced="YES">
@@ -510,9 +349,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 </state>
-                                <connections>
-                                    <segue id="2410" destination="2411" kind="show"/>
-                                </connections>
+                                <connections/>
                             </button>
                         </subviews>
                         <constraints>
@@ -542,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1649" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1834" y="739"/>
+            <point key="canvasLocation" x="1461" y="804"/>
         </scene>
         <scene sceneID="1671">
             <objects>

@@ -16,13 +16,22 @@ namespace SmartPass
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIProgressView pbValid { get; set; }
+        UIKit.UIButton btnMenu { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblC { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (pbValid != null) {
-                pbValid.Dispose ();
-                pbValid = null;
+            if (btnMenu != null) {
+                btnMenu.Dispose ();
+                btnMenu = null;
+            }
+
+            if (lblC != null) {
+                lblC.Dispose ();
+                lblC = null;
             }
         }
     }

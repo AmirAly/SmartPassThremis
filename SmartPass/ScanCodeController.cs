@@ -1,20 +1,25 @@
 using Foundation;
 using System;
 using UIKit;
+using SidebarNavigation;
 namespace SmartPass
 {
     public partial class ScanCodeController : UIViewController
     {
+
 		public ScanCodeController (IntPtr handle) : base (handle)
         {
         }
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
+			var user = NSUserDefaults.StandardUserDefaults;
+			string _peer = user.StringForKey("");
 			btnScan.TouchUpInside += (sender, e) =>
 			{
 				StartScanner();
 			};
+
 			btnPeer.TouchUpInside += (sender, e) =>
 			{
 				string _Code = tbCode.Text;
@@ -27,13 +32,15 @@ namespace SmartPass
 				}
 				else
 				{
-					PerformSegue("segPush", this);
-					//PushAccessController controller = Storyboard.InstantiateViewController("pushController") as PushAccessController;
-					// Display the new view
-					//this.NavigationController.PushViewController(controller, true);
+					//PerformSegue("sgViewCode", this);
+					user.SetString("PEER", "PEER");
+					var content = this.Storyboard.InstantiateViewController("acController") as AccessCodeViewController;
+					var menu = this.Storyboard.InstantiateViewController("sbController") as SideBarViewController;
+					RootController.SidebarController = new SidebarController(this, content, menu);
+
 				}
 			};
-			StartScanner();
+			//StartScanner();
 		}
 		public async void StartScanner()
 		{ 

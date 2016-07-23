@@ -116,6 +116,9 @@
     <Reference Include="Xamarin-Sidebar-Unified">
       <HintPath>..\Components\SidebarNavigation-1.9\lib\ios-unified\Xamarin-Sidebar-Unified.dll</HintPath>
     </Reference>
+    <Reference Include="RadialProgress.iOS">
+      <HintPath>..\Components\radialprogress-1.0.1.3\lib\ios-unified\RadialProgress.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json" />
@@ -149,14 +152,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewPinController.cs" />
-    <Compile Include="ViewPinController.designer.cs">
-      <DependentUpon>ViewPinController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FBViewController.cs" />
-    <Compile Include="FBViewController.designer.cs">
-      <DependentUpon>FBViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="ScanCodeController.cs" />
     <Compile Include="ScanCodeController.designer.cs">
       <DependentUpon>ScanCodeController.cs</DependentUpon>
@@ -205,6 +200,10 @@
     </XamarinComponentReference>
     <XamarinComponentReference Include="SidebarNavigation">
       <Version>1.9</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="radialprogress">
+      <Version>1.0.1.3</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
