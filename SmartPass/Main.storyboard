@@ -180,9 +180,7 @@
                                 <state key="normal" title="Close">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue id="2769" destination="1495" kind="show"/>
-                                </connections>
+                                <connections/>
                             </button>
                         </subviews>
                         <constraints>
@@ -190,7 +188,9 @@
                             <constraint id="2205" firstItem="1138" firstAttribute="bottom" secondItem="1132" secondAttribute="top"/>
                         </constraints>
                     </view>
-                    <connections/>
+                    <connections>
+                        <outlet property="btnCloseWebView" destination="1138" id="name-outlet-1138"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1136" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -302,48 +302,33 @@
                                     <segue id="2496" destination="229" kind="show"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1737" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                                <rect key="frame" x="100" y="334" width="147" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Help">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
-                                </state>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="1738" translatesAutoresizingMaskIntoConstraints="NO" image="about-xxl.png" misplaced="YES">
-                                <rect key="frame" x="37" y="326" width="55" height="52"/>
-                                <constraints>
-                                    <constraint id="1741" firstItem="1738" firstAttribute="height" constant="58"/>
-                                    <constraint id="1742" firstItem="1738" firstAttribute="width" constant="55"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2042" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                                <rect key="frame" x="102" y="424" width="167" height="30"/>
+                                <rect key="frame" x="103" y="338" width="167" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Themis Portal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 </state>
-                                <connections>
-                                    <segue id="2632" destination="1134" kind="show"/>
-                                </connections>
+                                <connections/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="2043" translatesAutoresizingMaskIntoConstraints="NO" image="earth-512.png" misplaced="YES">
-                                <rect key="frame" x="32" y="407" width="64" height="63"/>
+                                <rect key="frame" x="33" y="321" width="64" height="63"/>
                                 <constraints>
                                     <constraint id="2150" firstItem="2043" firstAttribute="width" constant="64"/>
                                     <constraint id="2151" firstItem="2043" firstAttribute="height" constant="63"/>
+                                    <constraint id="2820" firstItem="2043" firstAttribute="height" constant="63"/>
+                                    <constraint id="2821" firstItem="2043" firstAttribute="width" constant="64"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="2406" translatesAutoresizingMaskIntoConstraints="NO" image="files.png" misplaced="YES">
-                                <rect key="frame" x="32" y="496" width="64" height="63"/>
+                                <rect key="frame" x="33" y="410" width="64" height="63"/>
                                 <constraints>
-                                    <constraint id="2412" firstItem="2406" firstAttribute="height" constant="63"/>
-                                    <constraint id="2413" firstItem="2406" firstAttribute="width" constant="64"/>
+                                    <constraint id="2832" firstItem="2406" firstAttribute="width" constant="64"/>
+                                    <constraint id="2833" firstItem="2406" firstAttribute="height" constant="63"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2409" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                                <rect key="frame" x="104" y="513" width="167" height="30"/>
+                                <rect key="frame" x="105" y="427" width="167" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Legal Stuff">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -351,31 +336,40 @@
                                 </state>
                                 <connections/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2902" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" hidden="YES">
+                                <rect key="frame" x="164" y="570" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue id="2933" destination="1134" kind="show" identifier="sgWebView"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint id="1732" firstItem="1729" firstAttribute="leading" secondItem="1648" secondAttribute="leading" constant="37"/>
                             <constraint id="1733" firstItem="1729" firstAttribute="top" secondItem="1652" secondAttribute="bottom" constant="17"/>
                             <constraint id="1735" firstItem="1734" firstAttribute="leading" secondItem="1729" secondAttribute="trailing" constant="8"/>
                             <constraint id="1736" firstItem="1729" firstAttribute="bottom" secondItem="1734" secondAttribute="bottom" constant="12"/>
-                            <constraint id="1739" firstItem="1738" firstAttribute="top" secondItem="1729" secondAttribute="bottom" constant="35"/>
-                            <constraint id="1740" firstItem="1738" firstAttribute="leading" secondItem="1729" secondAttribute="leading"/>
                             <constraint id="1825" firstItem="1651" firstAttribute="top" secondItem="1644" secondAttribute="bottom" constant="53"/>
                             <constraint id="1826" firstItem="1651" firstAttribute="leading" secondItem="1648" secondAttribute="leading" constant="37"/>
                             <constraint id="1827" firstItem="1652" firstAttribute="top" secondItem="1651" secondAttribute="centerY" constant="24"/>
                             <constraint id="1828" firstItem="1652" firstAttribute="leading" secondItem="1648" secondAttribute="leading" constant="37"/>
-                            <constraint id="1832" firstItem="1737" firstAttribute="top" secondItem="1738" secondAttribute="top" constant="8"/>
-                            <constraint id="1833" firstItem="1737" firstAttribute="leading" secondItem="1738" secondAttribute="trailing" constant="8"/>
-                            <constraint id="2148" firstItem="2043" firstAttribute="top" secondItem="1738" secondAttribute="bottom" constant="29"/>
                             <constraint id="2149" firstItem="2043" firstAttribute="leading" secondItem="1648" secondAttribute="leading" constant="32"/>
-                            <constraint id="2154" firstItem="2042" firstAttribute="top" secondItem="1737" secondAttribute="bottom" constant="60"/>
-                            <constraint id="2155" firstItem="2042" firstAttribute="leading" secondItem="2043" secondAttribute="trailing" constant="6"/>
-                            <constraint id="2414" firstItem="2406" firstAttribute="centerX" secondItem="2043" secondAttribute="centerX"/>
-                            <constraint id="2415" firstItem="2406" firstAttribute="leading" secondItem="2043" secondAttribute="leading"/>
-                            <constraint id="2416" firstItem="2409" firstAttribute="top" secondItem="2406" secondAttribute="top" constant="17"/>
-                            <constraint id="2417" firstItem="2409" firstAttribute="leading" secondItem="2406" secondAttribute="trailing" constant="7"/>
-                            <constraint id="2420" firstItem="2406" firstAttribute="top" secondItem="2043" secondAttribute="bottom" constant="26"/>
+                            <constraint id="2824" firstItem="2043" firstAttribute="top" secondItem="1729" secondAttribute="bottom" constant="26"/>
+                            <constraint id="2825" firstItem="2043" firstAttribute="leading" secondItem="1648" secondAttribute="leading" constant="33"/>
+                            <constraint id="2826" firstItem="2042" firstAttribute="top" secondItem="1734" secondAttribute="bottom" constant="55"/>
+                            <constraint id="2827" firstItem="2042" firstAttribute="leading" secondItem="2043" secondAttribute="trailing" constant="6"/>
+                            <constraint id="2830" firstItem="2406" firstAttribute="top" secondItem="2043" secondAttribute="bottom" constant="26"/>
+                            <constraint id="2831" firstItem="2406" firstAttribute="leading" secondItem="1648" secondAttribute="leading" constant="33"/>
+                            <constraint id="2836" firstItem="2409" firstAttribute="top" secondItem="2406" secondAttribute="top" constant="17"/>
+                            <constraint id="2899" firstItem="2409" firstAttribute="leading" secondItem="2406" secondAttribute="trailing" constant="8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnPortal" destination="2042" id="name-outlet-2042"/>
+                        <outlet property="btnLegal" destination="2409" id="name-outlet-2409"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1649" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

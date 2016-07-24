@@ -4,6 +4,7 @@ using UIKit;
 using SidebarNavigation;
 using System.CodeDom.Compiler;
 using LocalAuthentication;
+using System.Threading;
 namespace SmartPass
 {
     public partial class RootController : UIViewController
@@ -22,7 +23,7 @@ namespace SmartPass
 			if (!context.CanEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out AuthError))
 			{
 				var alert = new UIAlertView("Error", "TouchID not available", null, "Ok", null);
-				alert.Show();;
+				alert.Show();
 
 				//UserAuthnticated();
 
@@ -51,9 +52,7 @@ namespace SmartPass
 			ObjCRuntime.Class.ThrowOnInitFailure = false;
 			var context = new LAContext();
 			NSError AuthError;
-			var myReason = new NSString("Themis validation");
-
-
+			var myReason = new NSString("Themis Smart Pass need your authorization");
 			if (context.CanEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out AuthError))
 			{
 				var replyHandler = new LAContextReplyHandler((success, error) =>
@@ -65,10 +64,9 @@ namespace SmartPass
 						{
 							UserAuthnticated();
 						}
-						else
-						{
-							//var alert = new UIAlertView("Authntic", "TouchID not available", null, "Ok", null);
-							//alert.Show);)
+						else {
+							var alert = new UIAlertView("Error", "You are not authorized on this device.", null, "Ok", null);
+							alert.Show();
 						}
 					});
 

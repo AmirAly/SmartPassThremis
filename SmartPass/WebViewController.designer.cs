@@ -14,8 +14,16 @@ namespace SmartPass
     [Register ("WebViewController")]
     partial class WebViewController
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnCloseWebView { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (btnCloseWebView != null) {
+                btnCloseWebView.Dispose ();
+                btnCloseWebView = null;
+            }
         }
     }
 }

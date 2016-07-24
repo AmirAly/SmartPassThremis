@@ -14,8 +14,25 @@ namespace SmartPass
     [Register ("SideBarViewController")]
     partial class SideBarViewController
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnLegal { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnPortal { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (btnLegal != null) {
+                btnLegal.Dispose ();
+                btnLegal = null;
+            }
+
+            if (btnPortal != null) {
+                btnPortal.Dispose ();
+                btnPortal = null;
+            }
         }
     }
 }
