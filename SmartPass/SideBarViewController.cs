@@ -1,7 +1,7 @@
 using Foundation;
 using System;
 using UIKit;
-
+using SidebarNavigation;
 namespace SmartPass
 {
     public partial class SideBarViewController : UIViewController
@@ -20,6 +20,17 @@ namespace SmartPass
 			{
 				WebViewController.url = "https://svc.themis.io/legal.html";
 				PerformSegue("sgWebView", this);
+
+			};
+			btnRePeer.TouchUpInside += (sender, e) => {
+				//var user = NSUserDefaults.StandardUserDefaults;
+				//user.SetString("", "PEER");
+				//PerformSegue("sgRePeer", this
+				var content = this.Storyboard.InstantiateViewController("scController") as ScanCodeController;
+				RootController.SidebarController.ChangeContentView(content);
+				//var menu = this.Storyboard.InstantiateViewController("sbController") as SideBarViewController;
+				//RootController.SidebarController = new SidebarController(this, content, menu);
+
 
 			};
 			base.ViewDidLoad();

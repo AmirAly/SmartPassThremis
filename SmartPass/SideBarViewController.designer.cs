@@ -22,6 +22,10 @@ namespace SmartPass
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton btnPortal { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnRePeer { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
             if (btnLegal != null) {
@@ -32,6 +36,11 @@ namespace SmartPass
             if (btnPortal != null) {
                 btnPortal.Dispose ();
                 btnPortal = null;
+            }
+
+            if (btnRePeer != null) {
+                btnRePeer.Dispose ();
+                btnRePeer = null;
             }
         }
     }

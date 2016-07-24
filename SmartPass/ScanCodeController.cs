@@ -7,14 +7,18 @@ namespace SmartPass
     public partial class ScanCodeController : UIViewController
     {
 
+		public static ZXing.Mobile.MobileBarcodeScanner scanner;
+		public static ZXing.Result result;
 		public ScanCodeController (IntPtr handle) : base (handle)
         {
         }
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
+
 			var user = NSUserDefaults.StandardUserDefaults;
-			string _peer = user.StringForKey("");
+			user.StringForKey("");
+
 			btnScan.TouchUpInside += (sender, e) =>
 			{
 				StartScanner();
@@ -32,7 +36,6 @@ namespace SmartPass
 				}
 				else
 				{
-					//PerformSegue("sgViewCode", this);
 					user.SetString("PEER", "PEER");
 					var content = this.Storyboard.InstantiateViewController("acController") as AccessCodeViewController;
 					var menu = this.Storyboard.InstantiateViewController("sbController") as SideBarViewController;
@@ -40,21 +43,27 @@ namespace SmartPass
 
 				}
 			};
-			//StartScanner();
 		}
 		public async void StartScanner()
-		{ 
-			
-			var scanner = new ZXing.Mobile.MobileBarcodeScanner();
-			scanner.BottomText = "Or enter it manually";
-			scanner.TopText = "Please align the code in the middle of the view";
-			scanner.CancelButtonText = "Enter manually";
-			var result = await scanner.Scan();
-			if (result != null)
+		{
+			if (scanner == null)
 			{
-				tbCode.Text = result.Text;
-				btnPeer.Enabled = false;
+				scanner = new ZXing.Mobile.MobileBarcodeScanner();
+				scanner.BottomText = "Or enter it manually";
+				scanner.TopText = "Please align the code in the middle of the view";
+				scanner.CancelButtonText = "Enter manually";
+
 			}
+				result = await scanner.Scan();
+				if (result != null)
+				{
+					tbCode.Text = result.Text;
+					btnPeer.Enabled = false;
+					scanner = null;
+					result = null;
+					GC.Collect();
+				}
+
 		}
     }
 }

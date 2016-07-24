@@ -298,9 +298,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 </state>
-                                <connections>
-                                    <segue id="2496" destination="229" kind="show"/>
-                                </connections>
+                                <connections/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2042" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
                                 <rect key="frame" x="103" y="338" width="167" height="30"/>
@@ -345,6 +343,15 @@
                                     <segue id="2933" destination="1134" kind="show" identifier="sgWebView"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3040" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" hidden="YES">
+                                <rect key="frame" x="58" y="545" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue id="3189" destination="1672" kind="show" identifier="sgRePeer"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint id="1732" firstItem="1729" firstAttribute="leading" secondItem="1648" secondAttribute="leading" constant="37"/>
@@ -369,6 +376,7 @@
                     <connections>
                         <outlet property="btnPortal" destination="2042" id="name-outlet-2042"/>
                         <outlet property="btnLegal" destination="2409" id="name-outlet-2409"/>
+                        <outlet property="btnRePeer" destination="1734" id="name-outlet-1734"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1649" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -386,8 +394,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2979" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" hidden="YES">
+                                <rect key="frame" x="164" y="601" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue id="3036" destination="229" kind="show" identifier="sgScanCode"/>
+                                </connections>
+                            </button>
+                        </subviews>
                     </view>
                     <navigationItem title="Title" id="1721" key="navigationItem"/>
+                    <connections>
+                        <outlet property="btnSegScan" destination="2979" id="name-outlet-2979"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1674" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

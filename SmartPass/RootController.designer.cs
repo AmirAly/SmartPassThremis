@@ -14,8 +14,16 @@ namespace SmartPass
     [Register ("RootController")]
     partial class RootController
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnSegScan { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (btnSegScan != null) {
+                btnSegScan.Dispose ();
+                btnSegScan = null;
+            }
         }
     }
 }
