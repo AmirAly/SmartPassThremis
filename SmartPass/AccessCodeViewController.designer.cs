@@ -20,6 +20,10 @@ namespace SmartPass
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnPortal { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lblC { get; set; }
 
         void ReleaseDesignerOutlets ()
@@ -27,6 +31,11 @@ namespace SmartPass
             if (btnMenu != null) {
                 btnMenu.Dispose ();
                 btnMenu = null;
+            }
+
+            if (btnPortal != null) {
+                btnPortal.Dispose ();
+                btnPortal = null;
             }
 
             if (lblC != null) {

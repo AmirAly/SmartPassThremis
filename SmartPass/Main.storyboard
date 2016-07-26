@@ -42,7 +42,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="235" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" placeholder="123456" misplaced="YES">
                                 <rect key="frame" x="80" y="304" width="213" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="236" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
                                 <rect key="frame" x="108" y="367" width="158" height="45"/>
@@ -226,7 +226,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2691" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                                <rect key="frame" x="330" y="20" width="36" height="30"/>
+                                <rect key="frame" x="330" y="30" width="36" height="30"/>
                                 <state key="normal" title="Button" image="taxes-menu-icon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -234,6 +234,20 @@
                                     <constraint id="2696" firstItem="2691" firstAttribute="width" constant="36"/>
                                     <constraint id="2697" firstItem="2691" firstAttribute="height" constant="30"/>
                                 </constraints>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3227" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="9" y="30" width="36" height="30"/>
+                                <state key="normal" title="Button" image="earth-512.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <constraints>
+                                    <constraint id="3228" firstItem="3227" firstAttribute="height" constant="30"/>
+                                    <constraint id="3229" firstItem="3227" firstAttribute="width" constant="36"/>
+                                    <constraint id="3278" firstItem="3227" firstAttribute="width" constant="36"/>
+                                </constraints>
+                                <connections>
+                                    <segue id="3274" destination="1134" kind="show" identifier="sgPortal"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -243,11 +257,14 @@
                             <constraint id="2807" firstItem="1499" firstAttribute="centerX" secondItem="1496" secondAttribute="centerX"/>
                             <constraint id="2809" firstItem="1502" firstAttribute="centerX" secondItem="1496" secondAttribute="centerX"/>
                             <constraint id="2810" firstItem="1502" firstAttribute="top" secondItem="1499" secondAttribute="bottom" constant="8"/>
+                            <constraint id="3230" firstItem="3227" firstAttribute="top" secondItem="1492" secondAttribute="bottom"/>
+                            <constraint id="3231" firstItem="3227" firstAttribute="leading" secondItem="1496" secondAttribute="leading" constant="9"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnMenu" destination="2691" id="name-outlet-2691"/>
                         <outlet property="lblC" destination="1502" id="name-outlet-1502"/>
+                        <outlet property="btnPortal" destination="3227" id="name-outlet-3227"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1497" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -335,7 +352,7 @@
                                 <connections/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2902" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" hidden="YES">
-                                <rect key="frame" x="164" y="570" width="46" height="30"/>
+                                <rect key="frame" x="255" y="637" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -344,7 +361,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3040" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" hidden="YES">
-                                <rect key="frame" x="58" y="545" width="46" height="30"/>
+                                <rect key="frame" x="317" y="637" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -352,6 +369,24 @@
                                     <segue id="3189" destination="1672" kind="show" identifier="sgRePeer"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3285" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="104" y="510" width="167" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Help">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                </state>
+                                <connections/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3286" translatesAutoresizingMaskIntoConstraints="NO" image="about-xxl.png" misplaced="YES">
+                                <rect key="frame" x="33" y="499" width="64" height="63"/>
+                                <constraints>
+                                    <constraint id="3287" firstItem="3286" firstAttribute="width" constant="64"/>
+                                    <constraint id="3288" firstItem="3286" firstAttribute="height" constant="63"/>
+                                    <constraint id="3289" firstItem="3286" firstAttribute="height" constant="63"/>
+                                    <constraint id="3290" firstItem="3286" firstAttribute="width" constant="64"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint id="1732" firstItem="1729" firstAttribute="leading" secondItem="1648" secondAttribute="leading" constant="37"/>
@@ -371,6 +406,10 @@
                             <constraint id="2831" firstItem="2406" firstAttribute="leading" secondItem="1648" secondAttribute="leading" constant="33"/>
                             <constraint id="2836" firstItem="2409" firstAttribute="top" secondItem="2406" secondAttribute="top" constant="17"/>
                             <constraint id="2899" firstItem="2409" firstAttribute="leading" secondItem="2406" secondAttribute="trailing" constant="8"/>
+                            <constraint id="3291" firstItem="3286" firstAttribute="leading" secondItem="2406" secondAttribute="leading"/>
+                            <constraint id="3292" firstItem="3286" firstAttribute="top" secondItem="2406" secondAttribute="bottom" constant="26"/>
+                            <constraint id="3298" firstItem="3285" firstAttribute="top" secondItem="2409" secondAttribute="bottom" constant="53"/>
+                            <constraint id="3299" firstItem="3285" firstAttribute="leading" secondItem="3286" secondAttribute="trailing" constant="7"/>
                         </constraints>
                     </view>
                     <connections>
@@ -393,7 +432,7 @@
                     <view key="view" contentMode="scaleToFill" id="1673">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2979" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" hidden="YES">
                                 <rect key="frame" x="164" y="601" width="46" height="30"/>
@@ -404,7 +443,36 @@
                                     <segue id="3036" destination="229" kind="show" identifier="sgScanCode"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3199" translatesAutoresizingMaskIntoConstraints="NO" image="themis-logo-w.png">
+                                <rect key="frame" x="30" y="270" width="314" height="106"/>
+                                <constraints>
+                                    <constraint id="3207" firstItem="3199" firstAttribute="height" constant="106"/>
+                                    <constraint id="3208" firstItem="3199" firstAttribute="width" constant="314"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Smart Pass" lineBreakMode="tailTruncation" minimumFontSize="10" id="3200" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" misplaced="YES">
+                                <rect key="frame" x="82" y="385" width="200" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0.4.5" lineBreakMode="tailTruncation" minimumFontSize="10" id="3205" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="166" y="415" width="42" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" colorSpace="calibratedWhite" white="0.666666666666667" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
+                        <constraints>
+                            <constraint id="3206" firstItem="3199" firstAttribute="centerX" secondItem="1673" secondAttribute="centerX"/>
+                            <constraint id="3209" firstItem="3199" firstAttribute="top" secondItem="1669" secondAttribute="bottom" constant="250"/>
+                            <constraint id="3210" firstItem="1673" firstAttribute="centerX" secondItem="3200" secondAttribute="centerX" constant="5"/>
+                            <constraint id="3211" firstItem="3200" firstAttribute="top" secondItem="3199" secondAttribute="bottom" constant="9"/>
+                            <constraint id="3212" firstItem="3205" firstAttribute="centerX" secondItem="1673" secondAttribute="centerX"/>
+                            <constraint id="3213" firstItem="3205" firstAttribute="top" secondItem="3200" secondAttribute="bottom" constant="9"/>
+                        </constraints>
                     </view>
                     <navigationItem title="Title" id="1721" key="navigationItem"/>
                     <connections>

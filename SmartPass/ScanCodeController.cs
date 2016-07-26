@@ -2,6 +2,8 @@ using Foundation;
 using System;
 using UIKit;
 using SidebarNavigation;
+using System.CodeDom.Compiler;
+using LocalAuthentication;
 namespace SmartPass
 {
     public partial class ScanCodeController : UIViewController
@@ -23,7 +25,11 @@ namespace SmartPass
 			{
 				StartScanner();
 			};
-
+			this.tbCode.ShouldReturn += (textField) =>
+			{
+				textField.ResignFirstResponder();
+				return true;
+			};
 			btnPeer.TouchUpInside += (sender, e) =>
 			{
 				string _Code = tbCode.Text;
