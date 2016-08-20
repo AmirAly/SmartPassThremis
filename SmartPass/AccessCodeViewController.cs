@@ -36,7 +36,7 @@ namespace SmartPass
 			_peer = user.StringForKey("PEER");
 			_peer = _peer.Replace("PEER_", "");
 			lblC.Text = _peer;
-			//lblC.Text = GetCode(_peer,30);
+			lblC.Text = GetCode(_peer);
 			t.Interval = 3000;
 			t.Elapsed += new System.Timers.ElapsedEventHandler(t_Elapsed);
 			t.Start();
