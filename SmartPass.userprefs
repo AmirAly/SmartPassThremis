@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="SmartPass/SmartPass.csproj" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench ActiveDocument="SmartPassThremis.git Status">
     <Files>
-      <File FileName="SmartPass/ScanCodeController.cs" Line="58" Column="31" />
+      <File FileName="SmartPass/ScanCodeController.cs" Line="48" Column="6" />
       <File FileName="SmartPass/RootController.cs" Line="27" Column="5" />
-      <File FileName="SmartPass/AccessCodeViewController.cs" Line="127" Column="18" />
+      <File FileName="SmartPass/AccessCodeViewController.cs" Line="39" Column="29" />
       <File FileName="SmartPassThremis.git Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
