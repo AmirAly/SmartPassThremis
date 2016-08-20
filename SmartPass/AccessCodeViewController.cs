@@ -124,7 +124,7 @@ namespace SmartPass
 							var alert = new UIAlertView("Error", "You are not authorized on this device.", null, "Ok", null);
 							alert.Show();
 							lblC.Text = "------";
-							Recycle();
+							//Recycle();
 						}
 					});
 

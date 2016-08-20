@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="SmartPass/SmartPass.csproj" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench ActiveDocument="SmartPassThremis.git Status">
     <Files>
-      <File FileName="SmartPass/ScanCodeController.cs" Line="48" Column="6" />
+      <File FileName="SmartPass/ScanCodeController.cs" Line="104" Column="19" />
       <File FileName="SmartPass/RootController.cs" Line="27" Column="5" />
       <File FileName="SmartPass/AccessCodeViewController.cs" Line="39" Column="29" />
       <File FileName="SmartPassThremis.git Status" />
+      <File FileName="SmartPass/Info.plist" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.SmartPass PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.AE35562F-5D07-48A8-88B9-F281F47BCF80" />
