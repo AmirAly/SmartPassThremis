@@ -24,7 +24,7 @@ namespace SmartPass
 			{
 				var alert = new UIAlertView("Error", "TouchID not available", null, "Ok", null);
 				alert.Show();
-				//UserAuthnticated();
+				UserAuthnticated();
 
 			}
 			AuthenticateMe();
@@ -33,7 +33,7 @@ namespace SmartPass
 		{
 			var user = NSUserDefaults.StandardUserDefaults;
 			string _peer = user.StringForKey("PEER");
-			if (_peer != "PEER")
+			if (!_peer.Contains("PEER_"))
 			{
 				var content = this.Storyboard.InstantiateViewController("scController") as ScanCodeController;
 				var menu = this.Storyboard.InstantiateViewController("sbController") as SideBarViewController;

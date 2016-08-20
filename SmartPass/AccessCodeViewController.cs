@@ -7,12 +7,17 @@ using System.Drawing;
 using System.Timers;
 using System.CodeDom.Compiler;
 using LocalAuthentication;
+using System.Security.Cryptography;
+using System.Linq;
 namespace SmartPass
 {
     public partial class AccessCodeViewController : UIViewController
     {
+		NSUserDefaults user = NSUserDefaults.StandardUserDefaults;
+		string _peer;
 		RadialProgressView progressView;
 		System.Timers.Timer t = new System.Timers.Timer();
+		static string allowedCharacters = "ABCDEFGHIGKLMNOPQRSTUVWXYZabcdefghigklmnopqrstuvwxyz0123456789";
         public AccessCodeViewController (IntPtr handle) : base (handle)
         {
         }
@@ -28,7 +33,10 @@ namespace SmartPass
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-
+			_peer = user.StringForKey("PEER");
+			_peer = _peer.Replace("PEER_", "");
+			lblC.Text = _peer;
+			//lblC.Text = GetCode(_peer,30);
 			t.Interval = 3000;
 			t.Elapsed += new System.Timers.ElapsedEventHandler(t_Elapsed);
 			t.Start();
@@ -60,8 +68,40 @@ namespace SmartPass
 			}
 			else
 			{
-				progressView.Value += 0.2f;
+				progressView.Value += 0.1f;
 			}
+		}
+		private static string GetCode(string secretKey)
+		{
+			long timeIndex = DateTime.Now.Ticks;
+			var secretKeyBytes = Base32Encode(secretKey);
+			HMACSHA1 hmac = new HMACSHA1(secretKeyBytes);
+			byte[] challenge = BitConverter.GetBytes(timeIndex);
+			if (BitConverter.IsLittleEndian) Array.Reverse(challenge);
+			byte[] hash = hmac.ComputeHash(challenge);
+			int offset = hash[19] & 0xf;
+			int truncatedHash = hash[offset] & 0x7f;
+			for (int i = 1; i < 4; i++)
+			{
+				truncatedHash <<= 8;
+				truncatedHash |= hash[offset + i] & 0xff;
+			}
+			truncatedHash %= 1000000;
+			return truncatedHash.ToString("D6");
+		}
+
+		private static byte[] Base32Encode(string source)
+		{
+			var bits = source.ToUpper().ToCharArray().Select(c =>
+				Convert.ToString(allowedCharacters.IndexOf(c), 2).PadLeft(5, '0')).Aggregate((a, b) => a + b);
+			return Enumerable.Range(0, bits.Length / 8).Select(i => Convert.ToByte(bits.Substring(i * 8, 8), 2)).ToArray();
+		}
+		public void Recycle()
+		{
+			progressView.Value = 0;
+			lblC.Text = GetCode(_peer);
+			t.Start();
+
 		}
 		public void AuthenticateMe()
 		{
@@ -78,16 +118,13 @@ namespace SmartPass
 					{
 						if (success)
 						{
-							progressView.Value = 0;
-							Random r = new Random();
-							lblC.Text = r.Next(100000, 999999).ToString().Insert(3, "-");
-							t.Start();
-
+							Recycle();
 						}
 						else {
 							var alert = new UIAlertView("Error", "You are not authorized on this device.", null, "Ok", null);
 							alert.Show();
 							lblC.Text = "------";
+							Recycle();
 						}
 					});
 
