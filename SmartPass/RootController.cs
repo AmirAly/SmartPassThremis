@@ -33,7 +33,7 @@ namespace SmartPass
 		{
 			var user = NSUserDefaults.StandardUserDefaults;
 			string _peer = user.StringForKey("PEER");
-			if (_peer != null && !_peer.Contains("PEER_"))
+			if (_peer == null || !_peer.Contains("PEER_"))
 			{
 				var content = this.Storyboard.InstantiateViewController("scController") as ScanCodeController;
 				var menu = this.Storyboard.InstantiateViewController("sbController") as SideBarViewController;
