@@ -1,14 +1,15 @@
 ﻿<Properties StartupItem="SmartPass/SmartPass.csproj" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workbench ActiveDocument="SmartPass/ScanCodeController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SmartPass/RootController.cs">
     <Files>
-      <File FileName="SmartPass/ScanCodeController.cs" Line="92" Column="23" />
-      <File FileName="SmartPass/RootController.cs" Line="30" Column="6" />
-      <File FileName="SmartPass/AccessCodeViewController.cs" Line="127" Column="10" />
+      <File FileName="SmartPass/ScanCodeController.cs" Line="29" Column="4" />
+      <File FileName="SmartPass/RootController.cs" Line="35" Column="45" />
+      <File FileName="SmartPass/AccessCodeViewController.cs" Line="37" Column="22" />
       <File FileName="SmartPass/Info.plist" />
+      <File FileName="SmartPassThremis.git Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.SmartPass PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.ItemProperties.SmartPass PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.A15B3B16-0976-4EFE-BE47-CD5DCE5AA963" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
