@@ -6,14 +6,18 @@ namespace SmartPass
 {
     public partial class SideBarViewController : UIViewController
     {
-        public SideBarViewController (IntPtr handle) : base (handle)
+		NSUserDefaults user = NSUserDefaults.StandardUserDefaults;
+		public SideBarViewController (IntPtr handle) : base (handle)
         {
         }
 		public override void ViewDidLoad()
 		{
 			btnPortal.TouchUpInside += (sender, e) =>
 			{
-				WebViewController.url = "https://svc.mylogin.io";
+				var _url = user.StringForKey("PORTAL");
+				if (_url == null)
+					_url = "https://svc.mylogin.io";
+				WebViewController.url = _url;
 				PerformSegue("sgWebView",this);
 			};
 			btnLegal.TouchUpInside += (sender, e) =>

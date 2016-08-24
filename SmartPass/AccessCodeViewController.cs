@@ -37,7 +37,7 @@ namespace SmartPass
 			_peer = _peer.Replace("PEER_", "");
 			lblC.Text = _peer;
 			lblC.Text = GetCode(_peer);
-			t.Interval = 3000;
+			t.Interval = 300;
 			t.Elapsed += new System.Timers.ElapsedEventHandler(t_Elapsed);
 			t.Start();
 			btnMenu.TouchUpInside += (sender, e) =>
@@ -46,8 +46,11 @@ namespace SmartPass
 			};
 			btnPortal.TouchUpInside += (sender, e) =>
 			{
+				var _url = user.StringForKey("PORTAL");
+				if(_url == null)
+					_url = "https://svc.mylogin.io";
 				WebViewController.url = "https://svc.mylogin.io";
-				PerformSegue("sgPortal", this);
+				//PerformSegue("sgPortal", this);
 			};
 			progressView = new RadialProgressView(null,RadialProgressViewStyle.Small);
 			progressView.Center = new PointF((float)View.Center.X, (float)lblC.Center.Y + 60);
@@ -64,11 +67,15 @@ namespace SmartPass
 			if (elapsed >= 1)
 			{
 				t.Stop();
-				AuthenticateMe();
+				//AuthenticateMe();
+				this.InvokeOnMainThread(() =>
+					{
+						Recycle();
+					});
 			}
 			else
 			{
-				progressView.Value += 0.1f;
+				progressView.Value += 0.01f;
 			}
 		}
 		private static string GetCode(string secretKey)

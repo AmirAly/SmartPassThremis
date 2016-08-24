@@ -32,27 +32,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0.2" green="0.2" blue="0.2" alpha="1"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Enter the code maually" lineBreakMode="tailTruncation" minimumFontSize="10" id="233" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" numberOfLines="2" misplaced="YES">
-                                <rect key="frame" x="20" y="233" width="335" height="85"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="235" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" placeholder="dx123bg765" misplaced="YES">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="235" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" placeholder="dx123bg765" misplaced="YES" hidden="YES">
                                 <rect key="frame" x="80" y="304" width="213" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="236" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                                <rect key="frame" x="108" y="367" width="158" height="45"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                <state key="normal" title="Peer">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
-                                </state>
-                                <connections/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1861" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
                                 <rect key="frame" x="88" y="152" width="184" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -61,16 +45,6 @@
                                     <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 </state>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The code should be a 10 digits alphanumeric code" lineBreakMode="tailTruncation" minimumFontSize="10" id="1873" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" numberOfLines="2" hidden="YES" misplaced="YES">
-                                <rect key="frame" x="30" y="439" width="313" height="72"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" colorSpace="calibratedRGB" red="1" green="0.53333333333333333" blue="0.60392156862745094" alpha="1"/>
-                                <nil key="highlightedColor"/>
-                                <constraints>
-                                    <constraint id="1886" firstItem="1873" firstAttribute="height" constant="72"/>
-                                </constraints>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2158" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" hidden="YES">
                                 <rect key="frame" x="164" y="564" width="46" height="30"/>
                                 <state key="normal" title="Button">
@@ -82,27 +56,14 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint id="1869" firstItem="236" firstAttribute="centerX" secondItem="230" secondAttribute="centerX"/>
-                            <constraint id="1885" firstItem="230" firstAttribute="centerX" secondItem="1873" secondAttribute="centerX" constant="1"/>
-                            <constraint id="1887" firstItem="1873" firstAttribute="top" secondItem="236" secondAttribute="bottom" constant="27"/>
                             <constraint id="2644" firstItem="230" firstAttribute="centerX" secondItem="1861" secondAttribute="centerX" constant="7"/>
                             <constraint id="2645" firstItem="1861" firstAttribute="top" secondItem="226" secondAttribute="bottom" constant="132"/>
-                            <constraint id="2646" firstItem="233" firstAttribute="centerX" secondItem="230" secondAttribute="centerX"/>
-                            <constraint id="2647" firstItem="233" firstAttribute="centerX" secondItem="230" secondAttribute="centerX"/>
-                            <constraint id="2648" firstItem="233" firstAttribute="centerY" secondItem="1861" secondAttribute="bottom" constant="93"/>
-                            <constraint id="2649" firstItem="235" firstAttribute="centerY" secondItem="233" secondAttribute="centerY" constant="43"/>
                             <constraint id="2650" firstItem="230" firstAttribute="centerX" secondItem="235" secondAttribute="centerX" constant="1"/>
-                            <constraint id="2651" firstItem="235" firstAttribute="top" secondItem="233" secondAttribute="centerY" constant="28"/>
-                            <constraint id="2652" firstItem="233" firstAttribute="top" secondItem="1861" secondAttribute="bottom" constant="51"/>
-                            <constraint id="2653" firstItem="236" firstAttribute="centerX" secondItem="230" secondAttribute="centerX"/>
-                            <constraint id="2654" firstItem="236" firstAttribute="top" secondItem="235" secondAttribute="bottom" constant="33"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tbCode" destination="235" id="name-outlet-235"/>
                         <outlet property="btnScan" destination="1861" id="name-outlet-1861"/>
-                        <outlet property="lbValidation" destination="1873" id="name-outlet-1873"/>
-                        <outlet property="btnPeer" destination="236" id="name-outlet-236"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="231" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -457,7 +418,7 @@
                                 <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0.6.0" lineBreakMode="tailTruncation" minimumFontSize="10" id="3205" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0.7.0" lineBreakMode="tailTruncation" minimumFontSize="10" id="3205" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
                                 <rect key="frame" x="166" y="415" width="42" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
