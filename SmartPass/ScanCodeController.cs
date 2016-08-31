@@ -57,17 +57,16 @@ namespace SmartPass
 				scanner = new ZXing.Mobile.MobileBarcodeScanner();
 				scanner.TopText  = "Scan the QR Code to peer your device";
 				scanner.BottomText = "Please align the code in the middle of the view";
-
 			}
+			try
+			{
 				result = await scanner.Scan();
 				if (result != null)
 				{
-				string _QRCode = "{\r\n  \"jwt\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJJUCI6IjE5Mi4xNjguMS40IiwiVXNlciI6ImhkMUBpdGhlbWlzLnVrIiwiUm9sZXMiOiJ0aGVtaXNwYXNzIiwiZ3VpZCI6IjNjOTM1MWMwLTBjMzAtNDczNy1iZThlLTBjMTU5ZGRhMWI3YyIsIklkX2d1aWQiOiIwIiwiaXNzIjoic3ZjLm15bG9naW4uaW8iLCJhdWQiOiJubjJTNDVrNEdkIiwiZXhwIjoxNDcxNDI3MjgxLCJuYmYiOjE0NzE0MjYwODF9.QVj_fslCBZyY4oeNICyaFkgNsaoqxCwg-rXsR4oD0keNAtXywyNxyAVc5AQJKnKVDh3yXq36TzVdrS2RaU7gdx8kzO1nn5otWtg-xk7I1Wq3C_dELJh4jKdv215_s3jfSaDS1nWMoa0gmuxy9_T-42kIOinTlr58UFRZVgE2-I0o9ZxrSkrKcsVqqqptkBplsplSOua5u4UQ7N6a5ApSQZae1A8Jy9Xwz_yVLDEwI-ZM_Hmjn5WvR5DD27Eai2P7pyer9tVAlMkW3qlvUFsECQMMdAHqwolMhbPqO0fBfVSueNSBVSUTtVY1csd30nFJiTW0zL_TRjtz9_74cTmmZg\"\r\n}";
-				try
-				{
-					_QRCode = result.Text.Replace("\\r\\n \\","");
-					_QRCode = _QRCode.Replace("\\r\\n","");
-					_QRCode = _QRCode.Replace("\\","");
+					string _QRCode = "{\r\n  \"jwt\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJJUCI6IjE5Mi4xNjguMS40IiwiVXNlciI6ImhkMUBpdGhlbWlzLnVrIiwiUm9sZXMiOiJ0aGVtaXNwYXNzIiwiZ3VpZCI6IjNjOTM1MWMwLTBjMzAtNDczNy1iZThlLTBjMTU5ZGRhMWI3YyIsIklkX2d1aWQiOiIwIiwiaXNzIjoic3ZjLm15bG9naW4uaW8iLCJhdWQiOiJubjJTNDVrNEdkIiwiZXhwIjoxNDcxNDI3MjgxLCJuYmYiOjE0NzE0MjYwODF9.QVj_fslCBZyY4oeNICyaFkgNsaoqxCwg-rXsR4oD0keNAtXywyNxyAVc5AQJKnKVDh3yXq36TzVdrS2RaU7gdx8kzO1nn5otWtg-xk7I1Wq3C_dELJh4jKdv215_s3jfSaDS1nWMoa0gmuxy9_T-42kIOinTlr58UFRZVgE2-I0o9ZxrSkrKcsVqqqptkBplsplSOua5u4UQ7N6a5ApSQZae1A8Jy9Xwz_yVLDEwI-ZM_Hmjn5WvR5DD27Eai2P7pyer9tVAlMkW3qlvUFsECQMMdAHqwolMhbPqO0fBfVSueNSBVSUTtVY1csd30nFJiTW0zL_TRjtz9_74cTmmZg\"\r\n}";
+					_QRCode = result.Text.Replace("\\r\\n \\", "");
+					_QRCode = _QRCode.Replace("\\r\\n", "");
+					_QRCode = _QRCode.Replace("\\", "");
 					_QRCode = _QRCode.Replace("\\", "");
 					_QRCode = _QRCode.Replace("\\", "");
 					_QRCode = _QRCode.Replace("\\", "");
@@ -80,7 +79,7 @@ namespace SmartPass
 					string JWT_Encoded_String = jObject_Encoded["jwt"].ToString();
 					string JWT_String_Decoded = JsonWebToken.Decode(JWT_Encoded_String, "", false);
 					JObject JWT_Decoded = JObject.Parse(JWT_String_Decoded);
-					long _ticks = long.Parse(JWT_Decoded["aud"].ToString());
+					long _ticks = long.Parse(JWT_Decoded["exp"].ToString());
 					DateTime _exp = new DateTime(_ticks);
 					if (_exp >= DateTime.Now)
 					{
@@ -95,13 +94,12 @@ namespace SmartPass
 					result = null;
 					GC.Collect();
 				}
-				catch
-				{
-					var alert = new UIAlertView("Error", "Unexpected code scanned: ", null, "Ok", null);
-					alert.Show();
-				}
-				}
-
+			}
+			catch (Exception ex)
+			{
+				var alert = new UIAlertView("Error", ex.Message, null, "Ok", null);
+				alert.Show();
+			}
 		}
     }
 }
