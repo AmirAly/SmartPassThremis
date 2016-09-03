@@ -1,7 +1,22 @@
+<<<<<<< Updated upstream
 ﻿<Properties StartupItem="SmartPass/SmartPass.csproj" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench />
+=======
+<Properties StartupItem="SmartPass/SmartPass.csproj" GitUserInfo="UsingGIT">
+<<<<<<< Updated upstream
+  <MonoDevelop.Ide.Workbench ActiveDocument="SmartPassThremis.git Status">
+    <Files>
+      <File FileName="SmartPassThremis.git Status" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+>>>>>>> Stashed changes
   <MonoDevelop.Ide.ItemProperties.SmartPass PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7F030E18-9A5C-4E39-9C98-A3A65AA2B01C" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+=======
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.ItemProperties.SmartPass PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+>>>>>>> Stashed changes
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
