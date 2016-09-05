@@ -53,32 +53,19 @@ namespace SmartPass
 		}
 		public async void StartScanner()
 		{
-			if (scanner == null)
-			{
-				scanner = new ZXing.Mobile.MobileBarcodeScanner(this.NavigationController);
-				scanner.TopText = "Scan the QR Code to peer your device";
-				scanner.BottomText = "Please align the code in the middle of the view";
-			}
+			scanner = new ZXing.Mobile.MobileBarcodeScanner();
 			scanner.UseCustomOverlay = true;
 			scanner.CustomOverlay = customOverlay;
 			customOverlay.ButtonCancel.TouchUpInside += (sender, e) =>
 			{
 				scanner.Cancel();
-
 			};
 			result = await scanner.Scan();
 		}
-		public async void StartScanner_()
+		public  void StartScanner_(ZXing.Result result)
 		{
-			if (scanner == null)
-			{
-				scanner = new ZXing.Mobile.MobileBarcodeScanner();
-				scanner.TopText  = "Scan the QR Code to peer your device";
-				scanner.BottomText = "Please align the code in the middle of the view";
-			}
 			try
 			{
-				result = await scanner.Scan();
 				if (result != null)
 				{
 					string _QRCode = "{\r\n  \"jwt\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJJUCI6IjE5Mi4xNjguMS40IiwiVXNlciI6ImhkMUBpdGhlbWlzLnVrIiwiUm9sZXMiOiJ0aGVtaXNwYXNzIiwiZ3VpZCI6IjNjOTM1MWMwLTBjMzAtNDczNy1iZThlLTBjMTU5ZGRhMWI3YyIsIklkX2d1aWQiOiIwIiwiaXNzIjoic3ZjLm15bG9naW4uaW8iLCJhdWQiOiJubjJTNDVrNEdkIiwiZXhwIjoxNDcxNDI3MjgxLCJuYmYiOjE0NzE0MjYwODF9.QVj_fslCBZyY4oeNICyaFkgNsaoqxCwg-rXsR4oD0keNAtXywyNxyAVc5AQJKnKVDh3yXq36TzVdrS2RaU7gdx8kzO1nn5otWtg-xk7I1Wq3C_dELJh4jKdv215_s3jfSaDS1nWMoa0gmuxy9_T-42kIOinTlr58UFRZVgE2-I0o9ZxrSkrKcsVqqqptkBplsplSOua5u4UQ7N6a5ApSQZae1A8Jy9Xwz_yVLDEwI-ZM_Hmjn5WvR5DD27Eai2P7pyer9tVAlMkW3qlvUFsECQMMdAHqwolMhbPqO0fBfVSueNSBVSUTtVY1csd30nFJiTW0zL_TRjtz9_74cTmmZg\"\r\n}";
