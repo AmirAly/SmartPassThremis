@@ -18,6 +18,7 @@ namespace SmartPass
 		public static ZXing.Mobile.MobileBarcodeScanner scanner;
 		public static ZXing.Result result;
 		NSUserDefaults user = NSUserDefaults.StandardUserDefaults;
+		CustomOverlayView customOverlay = new CustomOverlayView ();
 		public ScanCodeController (IntPtr handle) : base (handle)
         {
         }
@@ -33,7 +34,7 @@ namespace SmartPass
 				textField.ResignFirstResponder();
 				return true;
 			};
-			StartScanner();
+			//StartScanner();
 
 		}
 		public void generateCodeAndNavigate(string _key)
@@ -51,6 +52,23 @@ namespace SmartPass
 							 .ToArray();
 		}
 		public async void StartScanner()
+		{
+			if (scanner == null)
+			{
+				scanner = new ZXing.Mobile.MobileBarcodeScanner(this.NavigationController);
+				scanner.TopText = "Scan the QR Code to peer your device";
+				scanner.BottomText = "Please align the code in the middle of the view";
+			}
+			scanner.UseCustomOverlay = true;
+			scanner.CustomOverlay = customOverlay;
+			customOverlay.ButtonCancel.TouchUpInside += (sender, e) =>
+			{
+				scanner.Cancel();
+
+			};
+			result = await scanner.Scan(true);
+		}
+		public async void StartScanner_()
 		{
 			if (scanner == null)
 			{
