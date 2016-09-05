@@ -66,7 +66,7 @@ namespace SmartPass
 				scanner.Cancel();
 
 			};
-			result = await scanner.Scan(true);
+			result = await scanner.Scan();
 		}
 		public async void StartScanner_()
 		{
