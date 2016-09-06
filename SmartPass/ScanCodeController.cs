@@ -10,15 +10,71 @@ using System.Linq;
 using Newtonsoft;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Drawing;
+using AVFoundation;
+using Foundation;
+using System.Drawing;
+using CoreGraphics;
+using CoreFoundation;
 namespace SmartPass
 {
+	public class ContentView : UIView
+	{
+		AVCaptureVideoPreviewLayer layer;
+
+		public ContentView(UIColor fillColor, AVCaptureVideoPreviewLayer layer, MyMetadataOutputDelegate metadataSource)
+		{
+			BackgroundColor = fillColor;
+
+
+			this.layer = layer;
+			layer.MasksToBounds = true;
+			layer.VideoGravity = AVLayerVideoGravity.ResizeAspectFill;
+
+			Frame = UIScreen.MainScreen.Bounds;
+			layer.Frame = Frame;
+			Layer.AddSublayer(layer);
+
+			var label = new UILabel(new RectangleF(40, 80, 100, 80));
+			AddSubview(label);
+
+			metadataSource.MetadataFound += (s, e) => label.Text = e.StringValue;
+
+		}
+
+		public override void LayoutSubviews()
+		{
+			base.LayoutSubviews();
+			layer.Frame = Bounds;
+		}
+	}
+	public class MyMetadataOutputDelegate : AVCaptureMetadataOutputObjectsDelegate
+	{
+		public override void DidOutputMetadataObjects(AVCaptureMetadataOutput captureOutput, AVMetadataObject[] metadataObjects, AVCaptureConnection connection)
+		{
+			foreach (var m in metadataObjects)
+			{
+				if (m is AVMetadataMachineReadableCodeObject)
+				{
+					MetadataFound(this, m as AVMetadataMachineReadableCodeObject);
+				}
+			}
+		}
+
+		public event EventHandler<AVMetadataMachineReadableCodeObject> MetadataFound = delegate { };
+	}
     public partial class ScanCodeController : UIViewController
     {
-
+		AVCaptureSession session;
+		AVCaptureMetadataOutput metadataOutput;
+		public override void DidReceiveMemoryWarning()
+		{
+			// Releases the view if it doesn't have a superview.
+			base.DidReceiveMemoryWarning();
+		}
 		public static ZXing.Mobile.MobileBarcodeScanner scanner;
 		public static ZXing.Result result;
 		NSUserDefaults user = NSUserDefaults.StandardUserDefaults;
-		CustomOverlayView customOverlay = new CustomOverlayView ();
 		public ScanCodeController (IntPtr handle) : base (handle)
         {
         }
@@ -34,7 +90,29 @@ namespace SmartPass
 				textField.ResignFirstResponder();
 				return true;
 			};
-			//StartScanner();
+			session = new AVCaptureSession();
+			var camera = AVCaptureDevice.DefaultDeviceWithMediaType(AVMediaType.Video);
+			var input = AVCaptureDeviceInput.FromDevice(camera);
+			session.AddInput(input);
+
+			//Add the metadata output channel
+			metadataOutput = new AVCaptureMetadataOutput();
+			var metadataDelegate = new MyMetadataOutputDelegate();
+			metadataOutput.SetDelegate(metadataDelegate, DispatchQueue.MainQueue);
+			session.AddOutput(metadataOutput);
+			//Confusing! *After* adding to session, tell output what to recognize...
+
+			/*metadataOutput.MetadataObjectTypes = new NSString[] {
+				AVMetadataObject.TypeQRCode,
+				AVMetadataObject.TypeEAN13Code
+			};*/
+
+			var previewLayer = new AVCaptureVideoPreviewLayer(session);
+			var view = new ContentView(UIColor.Blue, previewLayer, metadataDelegate);
+
+			session.StartRunning();
+
+			this.View = view;
 
 		}
 		public void generateCodeAndNavigate(string _key)
@@ -54,12 +132,7 @@ namespace SmartPass
 		public async void StartScanner()
 		{
 			scanner = new ZXing.Mobile.MobileBarcodeScanner();
-			scanner.UseCustomOverlay = true;
-			scanner.CustomOverlay = customOverlay;
-			customOverlay.ButtonCancel.TouchUpInside += (sender, e) =>
-			{
-				scanner.Cancel();
-			};
+			scanner.UseCustomOverlay = false;
 			result = await scanner.Scan();
 		}
 		public  void StartScanner_(ZXing.Result result)

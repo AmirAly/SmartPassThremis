@@ -185,7 +185,6 @@
     <Compile Include="RootController.designer.cs">
       <DependentUpon>RootController.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomScanner.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Fingerprint-13.png" />
