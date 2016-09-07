@@ -36,6 +36,7 @@ namespace SmartPass
 			Layer.AddSublayer(layer);
 
 			var label = new UILabel(new RectangleF(40, 80, 100, 80));
+			label.Text = "Scanning ...";
 			AddSubview(label);
 
 			metadataSource.MetadataFound += (s, e) => label.Text = e.StringValue;
@@ -102,10 +103,7 @@ namespace SmartPass
 			session.AddOutput(metadataOutput);
 			//Confusing! *After* adding to session, tell output what to recognize...
 
-			/*metadataOutput.MetadataObjectTypes = new NSString[] {
-				AVMetadataObject.TypeQRCode,
-				AVMetadataObject.TypeEAN13Code
-			};*/
+			metadataOutput.MetadataObjectTypes = AVMetadataObjectType.QRCode;
 
 			var previewLayer = new AVCaptureVideoPreviewLayer(session);
 			var view = new ContentView(UIColor.Blue, previewLayer, metadataDelegate);
