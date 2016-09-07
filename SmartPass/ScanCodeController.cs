@@ -12,8 +12,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Drawing;
 using AVFoundation;
-using Foundation;
-using System.Drawing;
 using CoreGraphics;
 using CoreFoundation;
 namespace SmartPass
@@ -26,6 +24,8 @@ namespace SmartPass
 		float SideMargins;
 		UILabel label;
 		UILabel lblSq;
+		bool _Scanned = false;
+
 		public ContentView(UIColor fillColor, AVCaptureVideoPreviewLayer layer, MyMetadataOutputDelegate metadataSource)
 		{
 			BackgroundColor = fillColor;
@@ -49,7 +49,6 @@ namespace SmartPass
 			lblSq.Layer.BorderColor = new CGColor(255,255,255);
 			lblSq.Layer.BorderWidth = 2;
 			AddSubview(lblSq);
-			bool _Scanned = false;
 			metadataSource.MetadataFound += (s, e) => {
 				if (_Scanned)
 					return;
@@ -97,14 +96,15 @@ namespace SmartPass
 			{
 				if (_result != null)
 				{
-					string _QRCode = "{\r\n  \"jwt\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJJUCI6IjE5Mi4xNjguMS40IiwiVXNlciI6ImhkMUBpdGhlbWlzLnVrIiwiUm9sZXMiOiJ0aGVtaXNwYXNzIiwiZ3VpZCI6IjNjOTM1MWMwLTBjMzAtNDczNy1iZThlLTBjMTU5ZGRhMWI3YyIsIklkX2d1aWQiOiIwIiwiaXNzIjoic3ZjLm15bG9naW4uaW8iLCJhdWQiOiJubjJTNDVrNEdkIiwiZXhwIjoxNDcxNDI3MjgxLCJuYmYiOjE0NzE0MjYwODF9.QVj_fslCBZyY4oeNICyaFkgNsaoqxCwg-rXsR4oD0keNAtXywyNxyAVc5AQJKnKVDh3yXq36TzVdrS2RaU7gdx8kzO1nn5otWtg-xk7I1Wq3C_dELJh4jKdv215_s3jfSaDS1nWMoa0gmuxy9_T-42kIOinTlr58UFRZVgE2-I0o9ZxrSkrKcsVqqqptkBplsplSOua5u4UQ7N6a5ApSQZae1A8Jy9Xwz_yVLDEwI-ZM_Hmjn5WvR5DD27Eai2P7pyer9tVAlMkW3qlvUFsECQMMdAHqwolMhbPqO0fBfVSueNSBVSUTtVY1csd30nFJiTW0zL_TRjtz9_74cTmmZg\"\r\n}";
+					string _QRCode = "{\n  \"jwt\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJJUCI6IjE5Mi4xNjguMS40IiwiVXNlciI6ImhkMUBpdGhlbWlzLnVrIiwiUm9sZXMiOiJ0aGVtaXNwYXNzIiwiZ3VpZCI6IjVhNmQyMmI2LWNjYjItNDcxOS1hMjJhLThlYjJhMjZmMWE2ZCIsIklkX2d1aWQiOiIwIiwiaXNzIjoic3ZjLm15bG9naW4uaW8iLCJhdWQiOiJRTkc4ZVRqUTREIiwiZXhwIjoxNDczMjQxNjYyLCJuYmYiOjE0NzMyNDA0NjJ9.NDyYHsvcrHskU2Hw3oibLeYbZeSPLYUdPYN7TpdC9FNlNMKUwi6AWjie3Jt7aRFkqQfRO0_GsZvavAgNOkE4gogG_mF5YO-zga3jgK2bdL7xRK8llgd-aLgp_88nrpWwk1jChii6dBVGiB8aKnn3TtaMVeCiOuPMFmId5RdFBNNbtkuDSkQhygT81DJvX33c9lVqhWHaExGYvwjhKOgAziGhNSov_ofe3C8xxG7Tui_WTwbq4xUl_yD9aC9mUz2J-7-hhDOjY9eY3cM2NB2AC1gJ9TyZ0_n5qLnevYask8ol3sK3OaOfv0k-7mUi1sQVxeqlVQp42UQqLoI67KGgRw\"\n}";
 					_QRCode = _result.Replace("\\r\\n \\", "");
 					_QRCode = _QRCode.Replace("\\r\\n", "");
 					_QRCode = _QRCode.Replace("\\", "");
 					_QRCode = _QRCode.Replace("\\", "");
 					_QRCode = _QRCode.Replace("\\", "");
 					_QRCode = _QRCode.Replace("\\", "");
-
+					_QRCode = _QRCode.Replace("\\n  \\", "");
+					_QRCode = _QRCode.Replace("\\n", "");
 					JObject jObject_Encoded = JObject.Parse(_QRCode);
 					string JWT_Encoded_String = jObject_Encoded["jwt"].ToString();
 					string JWT_String_Decoded = JsonWebToken.Decode(JWT_Encoded_String, "", false);
@@ -127,6 +127,10 @@ namespace SmartPass
 			{
 				var alert = new UIAlertView("Error", ex.Message, null, "Ok", null);
 				alert.Show();
+			}
+			finally
+			{
+				_Scanned = false;
 			}
 		}
 	}
