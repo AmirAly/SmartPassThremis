@@ -46,7 +46,9 @@ namespace SmartPass
 			lblSq.Layer.BorderWidth = 2;
 			AddSubview(lblSq);
 
-			metadataSource.MetadataFound += (s, e) => { };
+			metadataSource.MetadataFound += (s, e) => {
+				processQRCode(e.StringValue);
+			};
 
 		}
 
