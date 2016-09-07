@@ -43,6 +43,6 @@
 	<key>UIApplicationExitsOnSuspend</key>
 	<true/>
 	<key>CFBundleVersion</key>
-	<string>2.1</string>
+	<string>2.2</string>
 </dict>
 </plist>

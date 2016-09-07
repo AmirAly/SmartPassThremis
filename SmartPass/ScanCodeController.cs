@@ -25,11 +25,16 @@ namespace SmartPass
 		UILabel label;
 		UILabel lblSq;
 		bool _Scanned = false;
-
+		UIViewController vc;
 		public ContentView(UIColor fillColor, AVCaptureVideoPreviewLayer layer, MyMetadataOutputDelegate metadataSource)
 		{
 			BackgroundColor = fillColor;
-
+			var window = UIApplication.SharedApplication.KeyWindow;
+			vc = window.RootViewController;
+			while (vc.PresentedViewController != null)
+			{
+				vc = vc.PresentedViewController;
+			}
 			 TopMargin = (float)this.Frame.Height / 3;
 			 SideMargins = (float)this.Frame.Width / 6;
 			this.layer = layer;
@@ -41,7 +46,7 @@ namespace SmartPass
 			Layer.AddSublayer(layer);
 
 			label = new UILabel(new RectangleF(TopMargin-60, SideMargins,(float)(this.Frame.Width - (SideMargins*2)),50));
-			label.Text = "Please center the code in the middle of te square";
+			label.Text = "Please align the code to the square";
 			label.BackgroundColor = UIColor.Black;
 			AddSubview(label);
 			lblSq = new UILabel(new RectangleF(TopMargin, SideMargins, (float)(this.Frame.Width - (SideMargins * 2)), TopMargin));
@@ -52,8 +57,6 @@ namespace SmartPass
 			metadataSource.MetadataFound += (s, e) => {
 				if (_Scanned)
 					return;
-				var alert = new UIAlertView("Info", "Captured", null, "Ok", null);
-				alert.Show();
 				_Scanned = true;
 				processQRCode(e.StringValue);
 			};
@@ -79,9 +82,9 @@ namespace SmartPass
 		public void generateCodeAndNavigate(string _key)
 		{
 			user.SetString("PEER_" + _key, "PEER");
-			var content = this.InputViewController.Storyboard.InstantiateViewController("acController") as AccessCodeViewController;
-			var menu = this.InputViewController.Storyboard.InstantiateViewController("sbController") as SideBarViewController;
-			RootController.SidebarController = new SidebarController(this.InputViewController, content, menu);
+			var content = vc.Storyboard.InstantiateViewController("acController") as AccessCodeViewController;
+			var menu = vc.Storyboard.InstantiateViewController("sbController") as SideBarViewController;
+			RootController.SidebarController = new SidebarController(vc, content, menu);
 		}
 		public static byte[] StringToByteArray(string hex)
 		{
@@ -92,8 +95,7 @@ namespace SmartPass
 		}
 		public void processQRCode(string _result)
 		{
-			try
-			{
+			try{
 				if (_result != null)
 				{
 					string _QRCode = "{\n  \"jwt\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJJUCI6IjE5Mi4xNjguMS40IiwiVXNlciI6ImhkMUBpdGhlbWlzLnVrIiwiUm9sZXMiOiJ0aGVtaXNwYXNzIiwiZ3VpZCI6IjVhNmQyMmI2LWNjYjItNDcxOS1hMjJhLThlYjJhMjZmMWE2ZCIsIklkX2d1aWQiOiIwIiwiaXNzIjoic3ZjLm15bG9naW4uaW8iLCJhdWQiOiJRTkc4ZVRqUTREIiwiZXhwIjoxNDczMjQxNjYyLCJuYmYiOjE0NzMyNDA0NjJ9.NDyYHsvcrHskU2Hw3oibLeYbZeSPLYUdPYN7TpdC9FNlNMKUwi6AWjie3Jt7aRFkqQfRO0_GsZvavAgNOkE4gogG_mF5YO-zga3jgK2bdL7xRK8llgd-aLgp_88nrpWwk1jChii6dBVGiB8aKnn3TtaMVeCiOuPMFmId5RdFBNNbtkuDSkQhygT81DJvX33c9lVqhWHaExGYvwjhKOgAziGhNSov_ofe3C8xxG7Tui_WTwbq4xUl_yD9aC9mUz2J-7-hhDOjY9eY3cM2NB2AC1gJ9TyZ0_n5qLnevYask8ol3sK3OaOfv0k-7mUi1sQVxeqlVQp42UQqLoI67KGgRw\"\n}";
@@ -127,10 +129,13 @@ namespace SmartPass
 			{
 				var alert = new UIAlertView("Error", ex.Message, null, "Ok", null);
 				alert.Show();
+				var content = vc.Storyboard.InstantiateViewController("scController") as AccessCodeViewController;
+				var menu = vc.Storyboard.InstantiateViewController("sbController") as SideBarViewController;
+				RootController.SidebarController = new SidebarController(vc, content, menu);
 			}
 			finally
 			{
-				_Scanned = false;
+				
 			}
 		}
 	}
