@@ -27,7 +27,7 @@ namespace SmartPass
 				UserAuthnticated();
 
 			}
-			AuthenticateMe();
+			//AuthenticateMe();
 		}
 		public void UserAuthnticated()
 		{

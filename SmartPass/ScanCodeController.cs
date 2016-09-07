@@ -39,14 +39,14 @@ namespace SmartPass
 			 SideMargins = (float)this.Frame.Width / 6;
 			this.layer = layer;
 			layer.MasksToBounds = true;
-			layer.VideoGravity = AVLayerVideoGravity.ResizeAspect;
+			layer.VideoGravity = AVLayerVideoGravity.ResizeAspectFill;
 
 			Frame = UIScreen.MainScreen.Bounds;
 			layer.Frame = Frame;
 			Layer.AddSublayer(layer);
 
 			label = new UILabel(new RectangleF(TopMargin-60, SideMargins,(float)(this.Frame.Width - (SideMargins*2)),50));
-			label.Text = "Please align the code to the square";
+			label.Text = "Align the code to the square";
 			label.BackgroundColor = UIColor.Black;
 			AddSubview(label);
 			lblSq = new UILabel(new RectangleF(TopMargin, SideMargins, (float)(this.Frame.Width - (SideMargins * 2)), TopMargin));
@@ -71,7 +71,7 @@ namespace SmartPass
 
 			label.Frame = new CGRect(0,TopMargin-70, SideMargins*6, 60);
 			label.TextColor = UIColor.Black;
-			label.Text = "Please center the code in the middle of te square";
+			label.Text = "Align the code to the square";
 			lblSq.Frame = new CGRect(SideMargins, TopMargin, (float)(this.Frame.Width - (SideMargins * 2)), TopMargin);
 			lblSq.Text = "";
 			label.BackgroundColor = UIColor.White;
