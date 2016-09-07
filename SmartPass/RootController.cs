@@ -24,10 +24,10 @@ namespace SmartPass
 			{
 				var alert = new UIAlertView("Error", "TouchID not available", null, "Ok", null);
 				alert.Show();
-				UserAuthnticated();
+				//UserAuthnticated();
 
 			}
-			//AuthenticateMe();
+			AuthenticateMe();
 		}
 		public void UserAuthnticated()
 		{
