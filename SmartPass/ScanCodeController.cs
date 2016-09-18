@@ -23,6 +23,7 @@ namespace SmartPass
 		float TopMargin;
 		float SideMargins;
 		UILabel label;
+		UILabel _scanArea;
 		UIButton btnCancel;
 		bool _Scanned = false;
 		UIViewController vc;
@@ -47,8 +48,14 @@ namespace SmartPass
 
 			label = new UILabel(new RectangleF(TopMargin-60, SideMargins,(float)(this.Frame.Width - (SideMargins*2)),50));
 			label.Text = "Align the code to the square";
-			label.BackgroundColor = UIColor.Black;
+			label.BackgroundColor = UIColor.White;
+			label.TextColor = UIColor.Black;
+			label.TextAlignment = UITextAlignment.Center;
+			label.Layer.BorderColor = new CGColor(255, 255, 255);
 			AddSubview(label);
+			_scanArea= new UILabel(new RectangleF(TopMargin, SideMargins, SideMargins * 4,TopMargin));
+			_scanArea.Layer.BorderColor = new CGColor(255, 255, 255);
+			AddSubview(_scanArea);
 			btnCancel = new UIButton(new RectangleF(TopMargin, SideMargins, (float)(this.Frame.Width - (SideMargins * 2)), TopMargin));
 			btnCancel.TitleLabel.Text = "Cancel";
 			btnCancel.Layer.BorderColor = new CGColor(255,255,255);
@@ -77,12 +84,18 @@ namespace SmartPass
 			SideMargins = (float)this.Frame.Width / 6;
 
 			label.Frame = new CGRect(0,TopMargin-70, SideMargins*6, 60);
-			label.TextColor = UIColor.Black;
 			label.Text = "Align the code to the square";
+			label.Layer.BorderColor = new CGColor(255, 255, 255);
+
 			btnCancel.Frame = new CGRect((this.Frame.Width/2)-50,this.Frame.Height- 60, 100, 40);
 			btnCancel.TitleLabel.Text = "Cancel";
 			btnCancel.TitleLabel.TextColor = UIColor.Black;
 			btnCancel.TitleLabel.TextAlignment = UITextAlignment.Center;
+
+			_scanArea.Frame = new CGRect(SideMargins, TopMargin, SideMargins * 4, TopMargin);
+			_scanArea.Layer.BorderColor = new CGColor(255, 255, 255);
+			_scanArea.Layer.BorderWidth = 2;
+			_scanArea.Text = "  ";
 			base.LayoutSubviews();
 
 		}
