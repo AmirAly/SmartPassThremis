@@ -23,7 +23,7 @@ namespace SmartPass
 		float TopMargin;
 		float SideMargins;
 		UILabel label;
-		UILabel lblSq;
+		UIButton btnCancel;
 		bool _Scanned = false;
 		UIViewController vc;
 		public ContentView(UIColor fillColor, AVCaptureVideoPreviewLayer layer, MyMetadataOutputDelegate metadataSource)
@@ -49,11 +49,18 @@ namespace SmartPass
 			label.Text = "Align the code to the square";
 			label.BackgroundColor = UIColor.Black;
 			AddSubview(label);
-			lblSq = new UILabel(new RectangleF(TopMargin, SideMargins, (float)(this.Frame.Width - (SideMargins * 2)), TopMargin));
-			lblSq.Text = "_________________________";
-			lblSq.Layer.BorderColor = new CGColor(255,255,255);
-			lblSq.Layer.BorderWidth = 2;
-			AddSubview(lblSq);
+			btnCancel = new UIButton(new RectangleF(TopMargin, SideMargins, (float)(this.Frame.Width - (SideMargins * 2)), TopMargin));
+			btnCancel.TitleLabel.Text = "Cancel";
+			btnCancel.Layer.BorderColor = new CGColor(255,255,255);
+			btnCancel.Layer.BorderWidth = 2;
+			btnCancel.SetTitle("Cancel", UIControlState.Normal);
+			AddSubview(btnCancel);
+			btnCancel.TouchUpInside += (sender, e) =>
+			{
+				var content = vc.Storyboard.InstantiateViewController("scController") as ScanCodeController;
+				var menu = vc.Storyboard.InstantiateViewController("sbController") as SideBarViewController;
+				RootController.SidebarController = new SidebarController(vc, content, menu);
+			};
 			metadataSource.MetadataFound += (s, e) => {
 				if (_Scanned)
 					return;
@@ -72,10 +79,10 @@ namespace SmartPass
 			label.Frame = new CGRect(0,TopMargin-70, SideMargins*6, 60);
 			label.TextColor = UIColor.Black;
 			label.Text = "Align the code to the square";
-			lblSq.Frame = new CGRect(SideMargins, TopMargin, (float)(this.Frame.Width - (SideMargins * 2)), TopMargin);
-			lblSq.Text = "";
-			label.BackgroundColor = UIColor.White;
-			label.TextAlignment = UITextAlignment.Center;
+			btnCancel.Frame = new CGRect((this.Frame.Width/2)-50,this.Frame.Height- 60, 100, 40);
+			btnCancel.TitleLabel.Text = "Cancel";
+			btnCancel.TitleLabel.TextColor = UIColor.Black;
+			btnCancel.TitleLabel.TextAlignment = UITextAlignment.Center;
 			base.LayoutSubviews();
 
 		}
